@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BrockAllen.MembershipReboot">
+      <HintPath>..\packages\BrockAllen.MembershipReboot.2.1.0\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
