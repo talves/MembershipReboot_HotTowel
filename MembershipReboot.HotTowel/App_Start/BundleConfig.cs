@@ -1,7 +1,7 @@
 using System;
 using System.Web.Optimization;
 
-namespace MembershipReboot.HotTowel
+namespace MembershipReboot.HotTowel.App_Start
 {
     public class BundleConfig
     {

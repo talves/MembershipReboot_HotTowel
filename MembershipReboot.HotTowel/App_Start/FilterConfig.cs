@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Mvc;
 
-namespace MembershipReboot.HotTowel
+namespace MembershipReboot.HotTowel.App_Start
 {
     public class FilterConfig
     {

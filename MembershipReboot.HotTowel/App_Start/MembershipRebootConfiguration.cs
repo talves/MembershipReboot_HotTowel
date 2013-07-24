@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace MembershipReboot.HotTowel
+namespace MembershipReboot.HotTowel.App_Start
 {
     public class PasswordValidator : IValidator
     {

@@ -17,9 +17,11 @@ namespace MembershipReboot.HotTowel.App_Start {
     public static void RegisterHotTowelPreStart() {
 
       // Preempt standard default MVC page routing to go to HotTowel Sample
+        // This would have been easier handled by just changing the default controller to HotTowel
+        //  I believe this should be removed!  It complicates the application when adding areas that should have gone first.
       System.Web.Routing.RouteTable.Routes.MapRoute(
           name: "HotTowelMvc",
-          url: "{controller}/{action}/{id}",
+          url: "HotTowel/{action}/{id}",
           defaults: new
           {
               controller = "HotTowel",

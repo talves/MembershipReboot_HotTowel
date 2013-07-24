@@ -9,6 +9,8 @@ namespace MembershipReboot.HotTowel.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
+    using Ninject.Web.Mvc;
+    using System.Web.Http;
 
     public static class NinjectWebCommon
     {

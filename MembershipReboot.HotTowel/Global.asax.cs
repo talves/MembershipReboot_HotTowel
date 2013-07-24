@@ -1,4 +1,5 @@
 ﻿using BrockAllen.MembershipReboot;
+using MembershipReboot.HotTowel.App_Start;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IdentityModel;
@@ -6,6 +7,7 @@ using System.IdentityModel.Services;
 using System.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Web.Helpers;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -24,11 +26,11 @@ namespace MembershipReboot.HotTowel
             // Initialize the Membership Reboot Database will create if does not exist
             Database.SetInitializer<DefaultMembershipRebootDatabase>(new CreateDatabaseIfNotExists<DefaultMembershipRebootDatabase>());
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
- 
+
+            AreaRegistration.RegisterAllAreas(RouteTable.Routes);
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
 
             InitMembershipDatabase();
 
