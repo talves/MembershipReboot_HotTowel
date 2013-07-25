@@ -212,3 +212,36 @@ footer span {
 		font-size: 14px;
 	}
 }
+/*#region forms */
+
+#loginForm input[type=checkbox]{
+    border: none;
+}
+
+#registerPanel{
+    display: none;
+    position: relative;
+    float: left;
+    text-align: left;
+    padding: 25px;
+}
+
+#loginPanel {
+    display: block;
+    position: relative;
+    float: left;
+    text-align: left;
+    padding: 25px;
+    width: 400px;
+}
+
+#registerPanel a,
+#loginPanel a {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+/*#endregion */
+
