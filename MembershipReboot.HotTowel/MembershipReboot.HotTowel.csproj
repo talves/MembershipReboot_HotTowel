@@ -344,6 +344,7 @@
     <Content Include="Areas\UserAccount\Views\Login\_Register.cshtml" />
     <Content Include="Areas\UserAccount\Views\Logout\Index.cshtml" />
     <Content Include="Content\toastr.less" />
+    <Content Include="mailSettings.config" />
     <None Include="Scripts\breeze.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
