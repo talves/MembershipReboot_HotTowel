@@ -13,6 +13,7 @@ namespace MembershipReboot.HotTowel.App_Start
             bundles.Add(
               new ScriptBundle("~/scripts/vendor")
                 .Include("~/scripts/jquery-{version}.js")
+                .Include("~/scripts/jquery-ui-{version}.js")
                 .Include("~/scripts/knockout-{version}.debug.js")
                 .Include("~/scripts/sammy-{version}.js")
                 .Include("~/scripts/toastr.js")
@@ -24,6 +25,10 @@ namespace MembershipReboot.HotTowel.App_Start
 
             bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
                 "~/App/ajaxlogin.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.unobtrusive*",
+                        "~/Scripts/jquery.validate*"));
 
             bundles.Add(
               new StyleBundle("~/Content/css")
