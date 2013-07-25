@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Account Home";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm(null, null, FormMethod.Post, new Dictionary<string, object>() { { "class", "form-inline" } }))
+    {
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+        <div class="control-group">
+            <label class="control-label" for="gender">Gender</label>
+            <div class="controls">
+                <select id="gender" name="gender">
+                    <option value="">-not set-</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-primary">Add/Change Gender</button>
+            </div>
+        </div>
+    </fieldset>
+    }
+
+}
+@section Claims {
+                <h3>Your Claims</h3>
+                <dl>
+                    @foreach (var claim in System.Security.Claims.ClaimsPrincipal.Current.Claims)
+                    {
+                        <dt>@claim.Type</dt>
+                        <dd>@claim.Value</dd>
+                        <dd>@claim.Issuer</dd>
+                    }
+                </dl>
+}

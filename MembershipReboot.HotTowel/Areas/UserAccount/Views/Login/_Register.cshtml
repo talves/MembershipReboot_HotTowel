@@ -1,0 +1,32 @@
+﻿@model MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel
+
+@using (Html.BeginForm("JsonRegister", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username, new { id = "registerName" })
+            </li>
+             <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.PasswordFor(m => m.Email)
+            </li>
+           <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+            <li>
+                <input type="submit" value="Sign up" />
+            </li>
+        </ol>
+        @Html.ValidationSummary()
+    </fieldset>
+}

@@ -1,21 +1,60 @@
 ﻿@using System.Web
 @using System.Web.Optimization
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
 <head>
-@{Html.RenderPartial("~/Views/Shared/_Header.cshtml");}
-@Styles.Render("~/Content/css")
-@{Html.RenderPartial("~/Views/Shared/_Header_js.cshtml");}
+    @{Html.RenderPartial("~/Views/Shared/_Header.cshtml");}
+    @Styles.Render("~/Content/css")
+    @{Html.RenderPartial("~/Views/Shared/_Header_js.cshtml");}
 </head>
 <body>
-    <div class="container">
-<!--[if lt IE 7]>
+    <div>
+        <header>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="/">
+                        <span class="title">Hot Towel SPA</span>
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                    <div class="container">
+                        <a href="#modalUserInformation" role="link" class="pull-right" data-toggle="modal"><i class="icon-question-sign icon-white"></i></a>
+                        <div class="nav-collapse collapse pull-right">
+                            <ul class="nav">
+                                @{Html.RenderPartial("_UserMenuSection");}
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to run this site.</p>
 <![endif]-->
-@RenderBody()
+            <section id="content" class="main container-fluid">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <nav class="navbar navbar-fixed-bottom">
+                <div class="navbar-inner navbar-content-center">
+                    <span class="pull-left"><a href="http://johnpapa.net/spa" target="_blank">Learn how to build a SPA </a></span>
+                    <span class="pull-right"><a href="http://johnpapa.net/hottowel" target="_blank">Hot Towel SPA - © 2013 JohnPapa.net</a></span>
+                </div>
+            </nav>
+        </footer>
     </div>
+    @Scripts.Render("~/bundles/ajaxlogin")
 </body>
 </html>

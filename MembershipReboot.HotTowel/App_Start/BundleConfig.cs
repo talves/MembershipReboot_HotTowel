@@ -22,6 +22,9 @@ namespace MembershipReboot.HotTowel.App_Start
                 .Include("~/scripts/moment.js")
               );
 
+            bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
+                "~/App/ajaxlogin.js"));
+
             bundles.Add(
               new StyleBundle("~/Content/css")
                 .Include("~/Content/ie10mobile.css")
