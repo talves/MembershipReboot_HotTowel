@@ -1,4 +1,27 @@
-﻿<section>
+﻿<section id="login-view" class="view">
     <h2 class="page-title" data-bind="text: title"></h2>
     <div data-bind="text: description"></div>
+    <div data-bind="with: login">    
+        <div class="details-right">
+            <div>
+                <label for="Username">Username</label>
+                <input data-bind="value: username" placeholder="Enter Username" class="text-box single-line" data-val="true" data-val-required="The Username field is required." id="Username" name="Username" type="text" value="" /> 
+            </div>
+        </div>
+        <div class="details-right">
+            <div>
+                <label for="Password">Password</label>
+                <input data-bind="value: password" placeholder="Enter Password" class="text-box single-line password" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" type="password" value="" /> 
+            </div>
+        </div>
+    </div>
+
+    <div class="button-bar">
+        <button class="btn btn-info"
+            data-bind="click: cancel, enable: canSave"><i class="icon-undo"></i> Cancel</button>
+        <button class="btn btn-info"
+                data-bind="click: signIn, enable: canSave"><i class="icon-save"></i> Save</button>
+        <i class="icon-asterisk" data-bind="visible: hasChanges"></i>
+    </div>
+
 </section>

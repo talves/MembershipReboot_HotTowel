@@ -1,0 +1,21 @@
+﻿@using System.Web
+@using System.Web.Optimization
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+@{Html.RenderPartial("~/Views/Shared/_Header.cshtml");}
+@Styles.Render("~/Content/css")
+@{Html.RenderPartial("~/Views/Shared/_Header_js.cshtml");}
+</head>
+<body>
+    <div class="container">
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to run this site.</p>
+<![endif]-->
+@RenderBody()
+    </div>
+</body>
+</html>
