@@ -12,6 +12,9 @@
 </head>
 <body>
     <div>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to run this site.</p>
+<![endif]-->
         <header>
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="navbar-inner">
@@ -38,14 +41,11 @@
                 </div>
             </nav>
         </header>
-        <div class="container">
-            <!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to run this site.</p>
-<![endif]-->
             <section id="content" class="main container-fluid">
+        <div class="container">
                 @RenderBody()
-            </section>
         </div>
+            </section>
         <footer>
             <nav class="navbar navbar-fixed-bottom">
                 <div class="navbar-inner navbar-content-center">

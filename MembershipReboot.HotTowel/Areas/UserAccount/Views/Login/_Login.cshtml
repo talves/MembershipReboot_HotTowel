@@ -1,30 +1,37 @@
 ﻿@model MembershipReboot.HotTowel.Areas.UserAccount.Models.LoginInputModel
 
-@using (Html.BeginForm("JsonLogin", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm" }))
+@using (Html.BeginForm("JsonLogin", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginForm", @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
 
     <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.Username)
+        <legend>Sign In Entry</legend>
+        <div class="control-group">
+            @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+            <div class="controls">
                 @Html.TextBoxFor(m => m.Username, new { autofocus = "autofocus", id = "loginName" })
                 @Html.ValidationMessageFor(m => m.Username)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="controls">
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
+            </div>
+        </div>
+        <div class="control-group">
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox control-label" })
+            <div class="controls">
                 @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-            <li>
-                <input type="submit" value="Log in" />
-            </li>
-        </ol>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+            <input type="submit" value="Log in" class ="btn btn-primary" />
+        </div>
+        </div>
+
         @Html.ValidationSummary() 
     </fieldset>
 }

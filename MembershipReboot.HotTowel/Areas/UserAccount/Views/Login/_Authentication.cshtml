@@ -1,13 +1,12 @@
-﻿    <div class="container" id="loginPanel">
+﻿    <div class="container well" id="loginPanel">
         <section id="localLoginPanel">
             <h2>Log in</h2>
-            @Html.Partial("_Login",new MembershipReboot.HotTowel.Areas.UserAccount.Models.LoginInputModel()))
+            @Html.Partial("_Login",new MembershipReboot.HotTowel.Areas.UserAccount.Models.LoginInputModel())
         </section>
-        <p>First time here? <a id="showRegister">Sign up</a></p>
+        <p>First time here? <a id="showRegister" class="btn btn-small btn-inverse">Sign up</a></p>
     </div>
-    <div class="container" id="registerPanel">
+    <div class="container well" id="registerPanel">
         <h2>Register</h2>
-        @Html.Partial("_Register",(new MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel()))
-)
-        <p>Already signed up? <a id="showLogin">Log in</a></p>
+        @Html.Partial("_Register",new MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel())
+        <p>Already signed up? <a id="showLogin" class="btn btn-small btn-inverse">Log in</a></p>
     </div>

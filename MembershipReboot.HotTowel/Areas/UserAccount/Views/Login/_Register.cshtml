@@ -1,32 +1,44 @@
 ﻿@model MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel
 
-@using (Html.BeginForm("JsonRegister", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm" }))
+@using (Html.BeginForm("JsonRegister", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm", @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
 
     <fieldset>
         <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.Username)
-                @Html.TextBoxFor(m => m.Username, new { id = "registerName" })
-            </li>
-             <li>
-                @Html.LabelFor(m => m.Email)
-                @Html.PasswordFor(m => m.Email)
-            </li>
-           <li>
-                @Html.LabelFor(m => m.Password)
+        <div class="control-group">
+            @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Username, new { autofocus = "autofocus", id = "registerName" })
+                @Html.ValidationMessageFor(m => m.Username)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="controls">
                 @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+        </div>
+       <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="controls">
                 @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-            <li>
-                <input type="submit" value="Sign up" />
-            </li>
-        </ol>
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+            <input type="submit" value="Sign up" class ="btn btn-primary" />
+        </div>
+        </div>
         @Html.ValidationSummary()
     </fieldset>
 }
