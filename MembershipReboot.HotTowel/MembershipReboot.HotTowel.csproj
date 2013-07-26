@@ -224,7 +224,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\ajaxlogin.js" />
+    <Content Include="Scripts\app\ajaxlogin.js" />
     <Content Include="App\durandal\amd\almond-custom.js" />
     <Content Include="App\durandal\amd\optimizer.exe" />
     <Content Include="App\durandal\amd\r.js" />
@@ -360,6 +360,8 @@
     <Content Include="Areas\UserAccount\Views\Shared\_ModalUserInformation.cshtml" />
     <Content Include="Areas\UserAccount\Views\Shared\_EndScripts.cshtml" />
     <None Include="Scripts\breeze.intellisense.js" />
+    <Content Include="Scripts\app\main.js" />
+    <Content Include="Scripts\app\plugins.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\breeze.debug.js" />

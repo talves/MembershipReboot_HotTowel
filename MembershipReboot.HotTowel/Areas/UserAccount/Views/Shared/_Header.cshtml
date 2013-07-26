@@ -1,23 +1,19 @@
-﻿    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+﻿<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>@ViewBag.Title</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-     @*Main Css*@
-    <link rel="stylesheet" href="~/Content/app/normalize.css">
-    <link rel="stylesheet" href="~/Content/app/main.css">
-     @*Bootstrap Css*@
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
-    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">
-     @*Padding to clear Menu bar*@
-   <style type="text/css">
-        body {
-            padding-top: 60px;
-            padding-bottom: 40px;
-        }
-    </style>
-    @*Header*@
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+@*Main Boilerplate Css*@
+@*Bootstrap Css*@
+@Styles.Render("~/Content/css/bs/boilerplate")
+@*Padding to clear Menu bar*@
+<style type="text/css">
+    body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+</style>
+@*Header*@
 @Scripts.Render("~/bundles/modernizr")
-@*    <script src="~/js/vendor/modernizr-2.6.2.min.js"></script>*@

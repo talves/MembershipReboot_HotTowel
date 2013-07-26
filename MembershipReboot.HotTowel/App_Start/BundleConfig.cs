@@ -23,8 +23,11 @@ namespace MembershipReboot.HotTowel.App_Start
                 .Include("~/scripts/moment.js")
               );
 
-            bundles.Add(new ScriptBundle("~/bundles/ajaxlogin").Include(
-                "~/App/ajaxlogin.js"));
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/app/ajaxlogin.js",
+                "~/Scripts/app/plugins.js",
+                "~/Scripts/app/main.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -43,6 +46,14 @@ namespace MembershipReboot.HotTowel.App_Start
                 .Include("~/Content/durandal.css")
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/app.css")
+              );
+
+            bundles.Add(
+              new StyleBundle("~/Content/css/bs/boilerplate")
+                .Include("~/Content/app/main.css")
+                .Include("~/Content/app/normalize.css")
+                .Include("~/Content/bootstrap.css")
+                .Include("~/Content/bootstrap-responsive.css")
               );
         }
 
