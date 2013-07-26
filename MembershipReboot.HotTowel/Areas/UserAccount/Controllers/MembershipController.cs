@@ -3,6 +3,7 @@ using BrockAllen.MembershipReboot;
 using MembershipReboot.HotTowel.Areas.UserAccount.Models;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -31,8 +32,9 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
             this.authSvc = authSvc;
         }
 
-        [AllowAnonymous]
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public JsonResult JsonLogin(LoginInputModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -63,6 +65,35 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Invalid Username or Password");
+                }
+            }
+
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public JsonResult JsonRegister(RegisterInputModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    this.userAccountService.CreateAccount(model.Username, model.Password, model.Email);
+                    if (SecuritySettings.Instance.RequireAccountVerification)
+                    {
+                        return Json(new { success = true, confirmed = false, redirect = returnUrl });
+                    }
+                    else
+                    {
+                        return Json(new { success = true, confirmed = true, redirect = returnUrl });
+                    }
+                }
+                catch (ValidationException e)
+                {
+                    ModelState.AddModelError("", e.Message);
                 }
             }
 

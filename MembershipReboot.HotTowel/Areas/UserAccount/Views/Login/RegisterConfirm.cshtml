@@ -1,0 +1,69 @@
+﻿@model MembershipReboot.HotTowel.Areas.UserAccount.Models.ResponseModel
+@{
+    ViewBag.Title = "Registration";
+    var wasSuccessful = Model.success;
+    var action = Model.action;
+}
+
+@if (action == "RegisterCancel")
+{
+    if (wasSuccessful)
+    {
+    <div class="alert alert-success">
+        <div class="container-fluid">
+            <h4><i class="icon-thumbs-up"></i>Account Closed!</h4>
+
+            <p>Your Account has been closed.</p>
+            <p>
+                Click @Html.ActionLink("here", "Index") to re-register or login with a different account.
+            </p>
+        </div>
+    </div>
+    }
+    else
+    {
+    <div class="alert alert-error">
+        <div class="container-fluid">
+            <h4><i class="icon-thumbs-down"></i>Error.</h4>
+
+            <p>
+                There was an error cancelling your account.
+            </p>
+            <p>
+                If you would like to try again, click 
+        @Html.ActionLink("here", "Index").
+            </p>
+        </div>
+    </div>
+    }
+}
+else if (action == "RegisterConfirm")
+{
+    if (wasSuccessful)
+    {
+    <div class="alert alert-success">
+        <div class="container-fluid">
+            <h4><i class="icon-thumbs-up"></i>Congratulations!</h4>
+
+            <p>Your account has been confirmed. You may login now.</p>
+            <p>
+                Click @Html.ActionLink("here", "Index") to sign in.
+            </p>
+        </div>
+    </div>
+    }
+    else
+    {
+    <div class="alert alert-error">
+        <div class="container-fluid">
+            <h4><i class="icon-thumbs-down"></i>Error Confirming your Registration.</h4>
+
+            <p>
+                There was an error confirming the registration. If you have already confirmed your account
+        then you should recieve a confirmation email and should be able to login 
+        @Html.ActionLink("here", "Index").
+            </p>
+        </div>
+    </div>
+    }
+}

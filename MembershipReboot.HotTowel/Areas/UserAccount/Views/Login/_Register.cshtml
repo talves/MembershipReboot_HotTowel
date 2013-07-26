@@ -1,40 +1,15 @@
 ﻿@model MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel
-
+@{
+    var model = Model;
+}
 @using (Html.BeginForm("JsonRegister", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { Id = "registerForm", @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
 
     <fieldset>
         <legend>Registration Form</legend>
-        <div class="control-group">
-            @Html.LabelFor(m => m.Username, new { @class = "control-label" })
-            <div class="controls">
-                @Html.TextBoxFor(m => m.Username, new { autofocus = "autofocus", id = "registerName" })
-                @Html.ValidationMessageFor(m => m.Username)
-            </div>
-        </div>
-        <div class="control-group">
-            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
-            <div class="controls">
-                @Html.TextBoxFor(m => m.Email)
-                @Html.ValidationMessageFor(m => m.Email)
-            </div>
-        </div>
-        <div class="control-group">
-            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
-            <div class="controls">
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </div>
-        </div>
-       <div class="control-group">
-            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
-            <div class="controls">
-                @Html.PasswordFor(m => m.ConfirmPassword)
-                @Html.ValidationMessageFor(m => m.ConfirmPassword)
-            </div>
-        </div>
-        <div class="control-group">
+                @Html.EditorForModel()
+                <div class="control-group">
             <div class="controls">
             <input type="submit" value="Sign up" class ="btn btn-primary" />
         </div>

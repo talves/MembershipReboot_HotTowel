@@ -39,10 +39,10 @@ namespace MembershipReboot.HotTowel.App_Start
                 {
                     ApplicationName = "Mvc4 Bootstrap Example App",
                     LoginUrl = baseUrl + "Login",
-                    VerifyAccountUrl = baseUrl + "Register/Confirm/",
-                    CancelNewAccountUrl = baseUrl + "Register/Cancel/",
-                    ConfirmPasswordResetUrl = baseUrl + "PasswordReset/Confirm/",
-                    ConfirmChangeEmailUrl = baseUrl + "ChangeEmail/Confirm/"
+                    VerifyAccountUrl = baseUrl + "Login/RegisterConfirm/",
+                    CancelNewAccountUrl = baseUrl + "Login/RegisterCancel/",
+                    ConfirmPasswordResetUrl = baseUrl + "Login/PasswordResetConfirm/",
+                    ConfirmChangeEmailUrl = baseUrl + "Login/ChangeEmailConfirm/"
 
                 };
             }));

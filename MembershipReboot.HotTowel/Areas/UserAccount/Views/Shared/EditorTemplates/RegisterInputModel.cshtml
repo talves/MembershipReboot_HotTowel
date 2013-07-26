@@ -1,0 +1,19 @@
+﻿@model MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel
+
+@if (!BrockAllen.MembershipReboot.SecuritySettings.Instance.EmailIsUsername)
+{
+    //The Great thing here is there is decission based on the web config as to whether to use the username field 
+    <div class="control-group">
+        @Html.LabelFor(x=>x.Username, new Dictionary<string, object>() { { "class", "control-label" },{ "for", "Username" } })
+    <div class="controls">
+        @Html.EditorFor(x=>x.Username)    
+        @Html.ValidationMessageFor(x=>x.Username)
+    </div>
+    </div>
+}
+@{
+    var thisPath = Path.GetDirectoryName(this.VirtualPath);
+    var partial = "Object.cshtml";
+    var path = Path.Combine(thisPath, partial);
+}
+@Html.Partial(path, Model)

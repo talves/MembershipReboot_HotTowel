@@ -1,10 +1,30 @@
-﻿    <div class="container well" id="loginPanel">
-            <h2>Log in</h2>
-            @Html.Partial("_Login",new MembershipReboot.HotTowel.Areas.UserAccount.Models.LoginInputModel())
-        <p>First time here? <a id="showRegister" class="btn btn-small btn-inverse">Sign up</a></p>
+﻿<div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+        <li class="active"><a id="showLogin" href="#loginPanel" data-toggle="tab">Login</a></li>
+        <li><a id="showRegister" href="#registerPanel" data-toggle="tab">Register</a></li>
+        <li><a id="showSendUsername" href="#sendUsernamePanel" data-toggle="tab">Forgot Username</a></li>
+        <li><a id="showResetPassword" href="#resetPasswordPanel" data-toggle="tab">Reset Password</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="loginPanel">
+           <div class="container-fluid well">
+                @Html.Partial("_Login", new MembershipReboot.HotTowel.Areas.UserAccount.Models.LoginInputModel())
+            </div>
+        </div>
+        <div class="tab-pane" id="registerPanel">
+            <div class="container-fluid well">
+                @Html.Partial("_Register", new MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel())
+            </div>
+        </div>
+        <div class="tab-pane" id="sendUsernamePanel">
+            <div class="container-fluid well">
+                @Html.Partial("_SendUsernameReminder", new MembershipReboot.HotTowel.Areas.UserAccount.Models.SendUsernameReminderInputModel())
+            </div>
+        </div>
+        <div class="tab-pane" id="resetPasswordPanel">
+            <div class="container-fluid well">
+                @Html.Partial("_PasswordReset", new MembershipReboot.HotTowel.Areas.UserAccount.Models.PasswordResetInputModel())
+            </div>
+        </div>
     </div>
-    <div class="container well" id="registerPanel">
-        <h2>Register</h2>
-        @Html.Partial("_Register",new MembershipReboot.HotTowel.Areas.UserAccount.Models.RegisterInputModel())
-        <p>Already signed up? <a id="showLogin" class="btn btn-small btn-inverse">Log in</a></p>
-    </div>
+</div>

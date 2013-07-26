@@ -197,7 +197,6 @@
     <Compile Include="Areas\UserAccount\Controllers\CloseAccountController.cs" />
     <Compile Include="Areas\UserAccount\Controllers\HomeController.cs" />
     <Compile Include="Areas\UserAccount\Controllers\LoginController.cs" />
-    <Compile Include="Areas\UserAccount\Controllers\_oldLoginController.cs" />
     <Compile Include="Areas\UserAccount\Controllers\LogoutController.cs" />
     <Compile Include="Areas\UserAccount\Controllers\PasswordResetController.cs" />
     <Compile Include="Areas\UserAccount\Controllers\RegisterController.cs" />
@@ -211,6 +210,7 @@
     <Compile Include="Areas\UserAccount\Models\MembershipRepository.cs" />
     <Compile Include="Areas\UserAccount\Models\PasswordResetInputModel.cs" />
     <Compile Include="Areas\UserAccount\Models\RegisterInputModel.cs" />
+    <Compile Include="Areas\UserAccount\Models\ResponseModel.cs" />
     <Compile Include="Areas\UserAccount\Models\SendUsernameReminderInputModel.cs" />
     <Compile Include="Areas\UserAccount\UserAccountAreaRegistration.cs" />
     <Compile Include="Areas\UserAccount\Controllers\MembershipController.cs" />
@@ -257,6 +257,8 @@
     <Content Include="App\views\nav.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\app.css" />
+    <Content Include="Content\app\main.css" />
+    <Content Include="Content\app\normalize.css" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -345,6 +347,18 @@
     <Content Include="Areas\UserAccount\Views\Logout\Index.cshtml" />
     <Content Include="Content\toastr.less" />
     <Content Include="mailSettings.config" />
+    <Content Include="Areas\UserAccount\Views\Shared\EditorTemplates\RegisterInputModel.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\RegisterConfirm.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\_PasswordReset.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\_ChangeEmailFromKey.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\_ChangeEmailRequest.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\_ChangePasswordFromResetKey.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\_ChangePassword.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\_ChangeUsername.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\_SendUsernameReminder.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_ModalUserInformation.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_EndScripts.cshtml" />
     <None Include="Scripts\breeze.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -420,7 +434,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>21076</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:4851/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

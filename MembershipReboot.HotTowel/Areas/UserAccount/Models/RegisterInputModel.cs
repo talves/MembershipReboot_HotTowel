@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MembershipReboot.HotTowel.Areas.UserAccount.Models
 {
+    [MetadataType(typeof(RegisterInputModel))]
     public class RegisterInputModel : IValidatableObject
     {
         [ScaffoldColumn(false)]

@@ -42,17 +42,32 @@
     };
 
     $("#showRegister").click(function () {
-        $("#loginPanel").hide("slide", function () {
+        $("#registerPanel").hide("slide", function () {
             $("#registerPanel").show("slide", function () {
-                $("#registerName").focus();
+                $("#Username").focus();
             });
         });
     });
-
+    
+    
     $("#showLogin").click(function () {
-        $("#registerPanel").hide("slide", function () {
+        $("#loginPanel").hide("slide", function () {
             $("#loginPanel").show("slide", function () {
-                $("#loginName").focus();
+                $("#Username").focus();
+            });
+        });
+    });
+    $("#showSendUsername").click(function () {
+        $("#sendUsernamePanel").hide("slide", function () {
+            $("#sendUsernamePanel").show("slide", function () {
+                $("#Username").focus();
+            });
+        });
+    });
+    $("#showResetPassword").click(function () {
+        $("#resetPasswordPanel").hide("slide", function () {
+            $("#resetPasswordPanel").show("slide", function () {
+                $("#Username").focus();
             });
         });
     });
