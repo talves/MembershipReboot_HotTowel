@@ -74,7 +74,7 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Error changing password. The key might be invalid.");
+                        ModelState.AddModelError("", "Error changing password. The key may be invalid or out of date. Please try again.");
                     }
                 }
                 catch (ValidationException ex)

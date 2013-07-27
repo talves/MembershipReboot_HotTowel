@@ -67,3 +67,33 @@ else if (action == "RegisterConfirm")
     </div>
     }
 }
+else if (action == "PasswordReset")
+{
+    if (wasSuccessful)
+    {
+    <div class="alert alert-success">
+        <div class="container-fluid">
+            <h4><i class="icon-thumbs-up"></i>Congratulations!</h4>
+
+            <p>Your password has been successfully changed. You may login now.</p>
+            <p>
+                Click @Html.ActionLink("here", "Index") to sign in.
+            </p>
+        </div>
+    </div>
+    }
+    else
+    {
+    <div class="alert alert-error">
+        <div class="container-fluid">
+            <h4><i class="icon-thumbs-down"></i>Error Confirming your Registration.</h4>
+
+            <p>
+                There was an error with submitting you password change request. If you have already confirmed your password
+        then you should recieve a confirmation email and should be able to login 
+        @Html.ActionLink("here", "Index").
+            </p>
+        </div>
+    </div>
+    }
+}

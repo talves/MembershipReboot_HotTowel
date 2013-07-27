@@ -362,6 +362,7 @@
     <Content Include="Areas\UserAccount\Views\Login\_CloseAccount.cshtml" />
     <Content Include="Areas\UserAccount\Views\Login\_LogoffMessage.cshtml" />
     <Content Include="Areas\UserAccount\Views\Login\_UserSettings.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Login\ConfirmPassword.cshtml" />
     <None Include="Scripts\breeze.intellisense.js" />
     <Content Include="Scripts\app\login\tabs.js" />
     <Content Include="Scripts\app\main.js" />
