@@ -1,0 +1,21 @@
+﻿@using (Html.BeginForm("JsonCloseAccount", "Membership", FormMethod.Post, new Dictionary<string, object>() { { "class", "form-horizontal" } }))
+{
+    @Html.ValidationSummary("Errors")
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Close Account</legend>
+        <div class="alert alert-error">
+            <h4>Warning!</h4>
+            <div class="container-fluid">
+                <p>
+                    Are you sure you want to close your account?  This will delete all account access and delete any configuration for the site.  We may not be able to restore any data you had on the site.
+                </p>
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="controls">
+            <button value="yes" name="button" class="btn btn-danger">Yes, Close Account</button>
+            </div>
+        </div>
+    </fieldset>
+}

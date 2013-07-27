@@ -101,6 +101,77 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
             return Json(new { errors = GetErrorsFromModelState() });
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public JsonResult JsonResetPassword(PasswordResetInputModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    this.userAccountService.ResetPassword(model.Email);
+                    return Json(new { success = true });
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public JsonResult JsonChangePasswordFromResetKey(ChangePasswordFromResetKeyInputModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (this.userAccountService.ChangePasswordFromResetKey(model.Key, model.Password))
+                    {
+                        return Json(new { success = true });
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Error changing password. The key might be invalid.");
+                    }
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public JsonResult JsonSendUsername(SendUsernameReminderInputModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    this.userAccountService.SendUsernameReminder(model.Email);
+                    return Json(new { success = true, email=model.Email.ToString() });
+                }
+                catch (ValidationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
+            // If we got this far, something failed
+            return Json(new { errors = GetErrorsFromModelState() });
+        }
+
         private IEnumerable<string> GetErrorsFromModelState()
         {
             return ModelState.SelectMany(x => x.Value.Errors.Select(error => error.ErrorMessage));

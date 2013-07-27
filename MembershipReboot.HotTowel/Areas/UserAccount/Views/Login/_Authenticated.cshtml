@@ -1,0 +1,44 @@
+﻿<ul class="nav nav-tabs">
+    <li><a href="#settingsPanel" data-toggle="tab">User Settings</a></li>
+    <li><a href="#changePasswordPanel" data-toggle="tab">Change Password</a></li>
+    <li><a href="#changeUsernamePanel" data-toggle="tab">Change Username</a></li>
+    <li><a href="#changeEmailPanel" data-toggle="tab">Change Email</a></li>
+    <li><a href="#closeAccountPanel" data-toggle="tab">Close Account</a></li>
+    <li class="active"><a href="#logoffPanel" data-toggle="tab">Sign Out</a></li>
+</ul>
+<div class="tabbable tabs-left">
+    <div class="tab-content">
+        <div class="tab-pane" id="settingsPanel">
+            <div class="container-fluid well">
+                @Html.Partial("_UserSettings")
+            </div>
+        </div>
+        <div class="tab-pane" id="changePasswordPanel">
+            <div class="container-fluid well">
+                @Html.Partial("_ChangePassword", new MembershipReboot.HotTowel.Areas.UserAccount.Models.ChangePasswordInputModel())
+                @Html.Partial("_ChangePasswordFromResetKey", new MembershipReboot.HotTowel.Areas.UserAccount.Models.ChangePasswordFromResetKeyInputModel())
+            </div>
+        </div>
+        <div class="tab-pane" id="changeUsernamePanel">
+            <div class="container-fluid well">
+                @Html.Partial("_ChangeUsername", new MembershipReboot.HotTowel.Areas.UserAccount.Models.ChangeUsernameInputModel())
+            </div>
+        </div>
+        <div class="tab-pane" id="changeEmailPanel">
+            <div class="container-fluid well">
+                @Html.Partial("_ChangeEmailRequest", new MembershipReboot.HotTowel.Areas.UserAccount.Models.ChangeEmailRequestInputModel())
+                @Html.Partial("_ChangeEmailFromKey", new MembershipReboot.HotTowel.Areas.UserAccount.Models.ChangeEmailFromKeyInputModel())
+            </div>
+        </div>
+        <div class="tab-pane" id="closeAccountPanel">
+            <div class="container-fluid well">
+                @Html.Partial("_CloseAccount")
+            </div>
+        </div>
+        <div class="tab-pane active" id="logoffPanel">
+            <div class="container-fluid well">
+                @Html.Partial("_LogoffMessage")
+            </div>
+        </div>
+    </div>
+</div>

@@ -41,37 +41,9 @@
         e.preventDefault();
     };
 
-    $("#showRegister").click(function () {
-        $("#registerPanel").hide("slide", function () {
-            $("#registerPanel").show("slide", function () {
-                $("#Username").focus();
-            });
-        });
-    });
-    
-    
-    $("#showLogin").click(function () {
-        $("#loginPanel").hide("slide", function () {
-            $("#loginPanel").show("slide", function () {
-                $("#Username").focus();
-            });
-        });
-    });
-    $("#showSendUsername").click(function () {
-        $("#sendUsernamePanel").hide("slide", function () {
-            $("#sendUsernamePanel").show("slide", function () {
-                $("#Username").focus();
-            });
-        });
-    });
-    $("#showResetPassword").click(function () {
-        $("#resetPasswordPanel").hide("slide", function () {
-            $("#resetPasswordPanel").show("slide", function () {
-                $("#Username").focus();
-            });
-        });
-    });
-
+ 
     $("#loginForm").submit(formSubmitHandler);
     $("#registerForm").submit(formSubmitHandler);
+    $("#passwordResetForm").submit(formSubmitHandler);
+    $("#sendUsernameReminderForm").submit(formSubmitHandler);
 });

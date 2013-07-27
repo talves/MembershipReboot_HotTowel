@@ -25,11 +25,10 @@ namespace MembershipReboot.HotTowel.App_Start
 
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
                 "~/Scripts/bootstrap.js",
-                "~/Scripts/handlebars-{version}.js",
-                "~/Scripts/ember-{version}.js",
                 "~/Scripts/app/ajaxlogin.js",
                 "~/Scripts/app/plugins.js",
-                "~/Scripts/app/main.js"));
+                "~/Scripts/app/main.js",
+                "~/Scripts/app/login/tabs.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",

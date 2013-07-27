@@ -1,37 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Sign In";
+    ViewBag.Title = "Account";
 }
 @functions{
     public string GetAntiForgeryToken()
     {
         string cookieToken, formToken;
         AntiForgery.GetTokens(null, out cookieToken, out formToken);
-        return cookieToken + ":" + formToken;                
+        return cookieToken + ":" + formToken;
     }
 }
 <div id="main-content">
-@if (@User.Identity.IsAuthenticated)
-{
-    <div class="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>Warning!</h4>
-        <div class="container-fluid">
-            You are already logged in as @User.Identity.Name<br />
-            You tried to access a resource that you are NOT authorized.<br />
-            If you are not @User.Identity.Name, please
-            <br />
-            @Html.ActionLink("Sign Off", "Index", "Logout",new RouteValueDictionary(new {area="UserAccount"}), new Dictionary<string, object>() { { "class", "btn btn-warning" } })
-        </div>
-    </div>
-}
-else
-{
-    @Html.Partial("_Authentication")
-}
+    @if (@User.Identity.IsAuthenticated)
+    {
+        @Html.Partial("_Authenticated")
+    }
+    else
+    {
+        @Html.Partial("_Authentication")
+    }
 </div>
-
 @if (@User.Identity.IsAuthenticated)
 {
-    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />      
+    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
+@section Claims {
+    <h3>Your Claims</h3>
+    <dl>
+        @foreach (var claim in System.Security.Claims.ClaimsPrincipal.Current.Claims)
+        {
+            <dt>@claim.Type</dt>
+            <dd>@claim.Value</dd>
+            <dd>@claim.Issuer</dd>
+        }
+    </dl>
+}
     
 }

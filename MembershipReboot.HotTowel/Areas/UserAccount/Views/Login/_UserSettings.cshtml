@@ -1,8 +1,4 @@
-﻿@{
-    ViewBag.Title = "Account Home";
-}
-
-@if (User.Identity.IsAuthenticated)
+﻿@if (User.Identity.IsAuthenticated)
 {
     using (Html.BeginForm(null, null, FormMethod.Post, new Dictionary<string, object>() { { "class", "form-inline" } }))
     {
@@ -26,15 +22,4 @@
     </fieldset>
     }
 
-}
-@section Claims {
-                <h3>Your Claims</h3>
-                <dl>
-                    @foreach (var claim in System.Security.Claims.ClaimsPrincipal.Current.Claims)
-                    {
-                        <dt>@claim.Type</dt>
-                        <dd>@claim.Value</dd>
-                        <dd>@claim.Issuer</dd>
-                    }
-                </dl>
 }

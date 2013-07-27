@@ -25,7 +25,7 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount
             context.MapRoute(
                 "UserAccount_default",
                 "UserAccount/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional },
+                new {controller="Login", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "MembershipReboot.HotTowel.Areas.UserAccount.Controllers" }
             );
         }

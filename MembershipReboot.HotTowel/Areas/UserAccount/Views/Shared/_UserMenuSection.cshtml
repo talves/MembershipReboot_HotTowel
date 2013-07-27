@@ -6,28 +6,28 @@
                                 {
                                     <li class="nav-header">Status (@User.Identity.Name)</li>
                                     <li>@Html.ActionLink("Sign Out", "Index", "Logout", new { area = "UserAccount" },null)</li>
-                                    <li>@Html.ActionLink("Account Settings", "Index", "Home", new { area = "" },null)</li>
+                                    <li><a href="#settingsPanel" data-toggle="tab">Account Settings</a></li>
                                     <li class="divider"></li>
                                     <li class="nav-header">-Account Help-</li>
                 
-                                    <li>@Html.ActionLink("Change Password", "Index", "ChangePassword", new { area = "UserAccount" },null)</li>
-                                    <li>@Html.ActionLink("Change Username", "Index", "ChangeUsername", new { area = "UserAccount" },null)</li>
-                                    <li>@Html.ActionLink("Change Email", "Index", "ChangeEmail", new { area = "UserAccount" },null)</li>
-                                    <li>@Html.ActionLink("Close Account", "Index", "CloseAccount", new { area = "UserAccount" },null)</li>
+                                    <li><a href="#changePasswordPanel" data-toggle="tab">Change Password</a></li>
+                                    <li><a href="#changeUsernamePanel" data-toggle="tab">Change Username</a></li>
+                                    <li><a href="#changeEmailPanel" data-toggle="tab">Change Email</a></li>
+                                    <li><a href="#closeAccountPanel" data-toggle="tab">Close Account</a></li>
                                 }
                                 else
                                 {
                                     <li class="nav-header">
                                         <div class="text-error">Status (Off)</div>
                                     </li>
-                                    <li>@Html.ActionLink("Sign In", "Index", "Login", new { area = "UserAccount" },null)</li>
-                                    <li class="divider"></li>
+                                    <li><a href="#loginPanel" data-toggle="tab">Login</a></li>
+                                    <li class="divider" ></li>
                                     <li class="nav-header">-Forgot-</li>
-                                    <li>@Html.ActionLink("Email Username", "Index", "SendUsernameReminder", new { area = "UserAccount" },null)</li>
-                                    <li>@Html.ActionLink("Reset Password", "Index", "PasswordReset", new { area = "UserAccount" },null)</li>
+                                    <li><a href="#sendUsernamePanel" data-toggle="tab">Email User Name</a></li>
+                                    <li><a href="#resetPasswordPanel" data-toggle="tab">Reset Password</a></li>
                                     <li class="divider"></li>
                                     <li class="nav-header">-Registration-</li>
-                                    <li>@Html.ActionLink("Register", "Index", "Register", new { area = "UserAccount" },null)</li>
+                                    <li><a href="#registerPanel" data-toggle="tab">Register</a></li>
                                 }
                             </ul>
                         </li>
