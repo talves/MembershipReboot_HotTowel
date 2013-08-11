@@ -1,5 +1,7 @@
 ﻿@{
     ViewBag.Title = "Account";
+    //ViewBag.ReturnUrl = Html.Action("Index", "HotTowel", new { area = "" });
+    ViewBag.ReturnUrl = Request.QueryString["ReturnUrl"];
 }
 @functions{
     public string GetAntiForgeryToken()

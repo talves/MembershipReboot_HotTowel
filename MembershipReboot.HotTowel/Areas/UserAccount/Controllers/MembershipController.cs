@@ -58,7 +58,7 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
                         }
                         else
                         {
-                            return Json(new { success = true, redirect = "" });
+                            return Json(new { success = true, redirect = "/" });
                         }
                     }
                 }
@@ -84,11 +84,11 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
                     this.userAccountService.CreateAccount(model.Username, model.Password, model.Email);
                     if (SecuritySettings.Instance.RequireAccountVerification)
                     {
-                        return Json(new { success = true, confirmed = false, redirect = returnUrl });
+                        return Json(new { success = true, confirmed = false, message = "You have been sent a verification email.  Follow the instructions to verify your account." });
                     }
                     else
                     {
-                        return Json(new { success = true, confirmed = true, redirect = returnUrl });
+                        return Json(new { success = true, confirmed = true, message = "You have been confirmed to login." });
                     }
                 }
                 catch (ValidationException e)
@@ -111,7 +111,7 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
                 try
                 {
                     this.userAccountService.ResetPassword(model.Email);
-                    return Json(new { success = true });
+                    return Json(new { success = true, message = "You have been sent a message to verify your password reset at "+model.Email.ToString() });
                 }
                 catch (ValidationException ex)
                 {
@@ -133,7 +133,7 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
                 {
                     if (this.userAccountService.ChangePasswordFromResetKey(model.Key, model.Password))
                     {
-                        return Json(new { success = true });
+                        return Json(new { success = true, message = "Your password has been reset." });
                     }
                     else
                     {
@@ -160,7 +160,7 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
                 try
                 {
                     this.userAccountService.SendUsernameReminder(model.Email);
-                    return Json(new { success = true, email=model.Email.ToString() });
+                    return Json(new { success = true, email = model.Email.ToString(), message = "Sent user name to " + model.Email.ToString() });
                 }
                 catch (ValidationException ex)
                 {
