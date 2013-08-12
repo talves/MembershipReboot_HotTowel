@@ -42,7 +42,7 @@ namespace MembershipReboot.HotTowel.App_Start
                     VerifyAccountUrl = baseUrl + "Login/RegisterConfirm/",
                     CancelNewAccountUrl = baseUrl + "Login/RegisterCancel/",
                     ConfirmPasswordResetUrl = baseUrl + "Login/ConfirmPassword/",
-                    ConfirmChangeEmailUrl = baseUrl + "Login/ChangeEmailConfirm/"
+                    ConfirmChangeEmailUrl = baseUrl + "Login/ConfirmEmail/"
 
                 };
             }));

@@ -26,6 +26,25 @@ namespace MembershipReboot.HotTowel
             {
                 return FormatValue(evt, "your account was closed with {applicationName}. good riddance.");
             }
+            
+            if (evt is PasswordResetRequestedEvent)
+            {
+                var user = evt.Account;
+                var message = @"You (or someone else) has requested a password reset for {applicationName}. 
+
+Username: {username}
+ResetKey: "+ user.VerificationKey + @"
+
+You can login if you know your password and use the key to reset your password or
+click here to confirm your request so you can reset your password: 
+
+{confirmPasswordResetUrl}
+
+Thanks!
+
+{emailSignature}";
+                return FormatValue(evt, message);
+            }
 
             return base.GetBody(evt);
         }

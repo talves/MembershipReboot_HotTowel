@@ -84,5 +84,14 @@ namespace MembershipReboot.HotTowel.Areas.UserAccount.Controllers
             return View();
         }
 
+        public ActionResult ConfirmEmail(string id)
+        {
+            var vm = new ChangeEmailFromKeyInputModel()
+            {
+                Key = id
+            };
+            return View("ConfirmEmail", vm);
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model MembershipReboot.HotTowel.Areas.UserAccount.Models.ChangeEmailRequestInputModel
 
-@using (Html.BeginForm("JsonChangeEmailRequest", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "passwordResetForm", @class = "form-horizontal" }))
+@using (Html.BeginForm("JsonChangeEmailRequest", "Membership", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "changeEmailForm", @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
 
@@ -9,12 +9,14 @@
         @Html.EditorForModel()
         <div class="control-group">
             <div class="controls">
-                <input type="submit" value="Log in" class="btn btn-primary" />
+                <input type="submit" value="Send for Verification" class="btn btn-primary" />
             </div>
         </div>
         <div class="alert alert-success" style="display:none">
             <strong>Success!</strong>&nbsp;<span></span>
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <div class="alert alert-warning">
+            <strong>Warning!</strong>&nbsp;Before you choose to change your email, make sure to type it in correctly.  A wrong email could expose private account information.<span></span>
         </div>
         @Html.ValidationSummary()
     </fieldset>

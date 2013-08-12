@@ -31,7 +31,12 @@
             .removeClass('validation-summary-errors')
             .addClass('validation-summary-valid')
     };
-
+    var clearInputs = function (form) {
+        form.find('input[type=text],select').val('');
+        form.find('input[type=email],select').val('');
+        form.find('input[type=password],select').val('');
+        return true;
+    }
     var formSubmitHandler = function (e) {
         var $form = $(this);
 
@@ -46,6 +51,7 @@
                         if (json.redirect) {
                             window.location = json.redirect || location.href;
                         } else {
+                            clearInputs($form);
                             displayAlert($form, json.message);
                         }
                     } else if (json.errors) {
@@ -63,10 +69,15 @@
         e.preventDefault();
         $form.find('input:submit').attr("disabled", true);
     };
-
  
     $("#loginForm").submit(formSubmitHandler);
     $("#registerForm").submit(formSubmitHandler);
     $("#passwordResetForm").submit(formSubmitHandler);
     $("#sendUsernameReminderForm").submit(formSubmitHandler);
+    $("#closeAccountForm").submit(formSubmitHandler);
+    $("#changePasswordForm").submit(formSubmitHandler);
+    $("#changePasswordFromResetKeyForm").submit(formSubmitHandler);
+    $("#changeUsernameForm").submit(formSubmitHandler);
+    $("#changeEmailForm").submit(formSubmitHandler);
+    $("#changeEmailFromKeyForm").submit(formSubmitHandler);
 });

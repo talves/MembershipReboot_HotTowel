@@ -1,6 +1,5 @@
-﻿@using (Html.BeginForm("JsonCloseAccount", "Membership", FormMethod.Post, new Dictionary<string, object>() { { "class", "form-horizontal" } }))
+﻿@using (Html.BeginForm("JsonCloseAccount", "Membership", FormMethod.Post, new { id = "closeAccountForm", @class = "form-horizontal" }))
 {
-    @Html.ValidationSummary("Errors")
     @Html.AntiForgeryToken()
     <fieldset>
         <legend>Close Account</legend>
@@ -12,10 +11,14 @@
                 </p>
             </div>
         </div>
+        <div class="alert alert-success" style="display:none">
+            <strong>Success!</strong>&nbsp;<span></span>
+        </div>
          <div class="control-group">
             <div class="controls">
             <button value="yes" name="button" class="btn btn-danger">Yes, Close Account</button>
             </div>
         </div>
+        @Html.ValidationSummary()
     </fieldset>
 }
