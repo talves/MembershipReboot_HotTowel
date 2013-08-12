@@ -20,6 +20,11 @@
         var alertSummary = form.find('.alert-success')
             .css('display', 'none');
     };
+    var clearErrors = function (form, errors) {
+        var errorSummary = form.find('.validation-summary-errors, .validation-summary-valid')
+                    .removeClass('validation-summary-errors')
+                    .addClass('validation-summary-valid');
+    }
 
     var displayAlert = function (form, message) {
         var alertSummary = form.find('.alert-success')
@@ -68,6 +73,7 @@
         // Prevent the normal behavior since we opened the dialog
         e.preventDefault();
         $form.find('input:submit').attr("disabled", true);
+        clearErrors($form);
     };
  
     $("#loginForm").submit(formSubmitHandler);
